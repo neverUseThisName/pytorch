@@ -258,6 +258,9 @@ class Subset(Dataset):
 
     def __len__(self):
         return len(self.indices)
+    
+    def __getattr__(self, name):
+        return self.dataset.__getattribute__(name)
 
 
 def random_split(dataset, lengths, generator=default_generator):
